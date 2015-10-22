@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>版本信息管理</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 20px;
+        padding-bottom: 60px;
+      }
+
+      /* Custom container */
+
+
+      /* Main marketing message and sign up button */
+
+      form.boarder {
+          border: 1px solid #CCCCCC;
+          min-height: 200px;
+          padding: 5px;
+          width: 500px;
+      }
+      #footer {
+      	  margin-left: 420px;
+      }
+    </style>
+
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <div class="masthead">
+        <h3 class="muted">版本信息管理</h3>
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="container">
+              <ul class="nav">
+                <li id="app_list"><a href="#">项目列表</a></li>
+                <li id="add_app"><a href="#">添加项目</a></li>
+                <li id="add_version"><a href="#">添加版本</a></li>
+              </ul>
+            </div>
+          </div>
+        </div><!-- /.navbar -->
+      </div>
+      <form class="form-inline offset1">
+
+
+
+
+        <div class="input-prepend input-append btn-group">
+          <select id="current_app">
+            <option value="0">项目列表</option>
+          </select>
+          <span class="add-on">从版本号</span>
+          <input class="span2" id="from_version" type="text">
+          <div class="input-prepend input-append">
+            <span class="add-on">到</span>
+            <input class="span2" id="to_version" type="text">
+            <button type="button" class="btn" id="search">搜索</button>
+          </div>
+        </div>
+
+
+
+      </form>
+
+
+      <div id="main" class="container">
+
+
+      </div>
+
+      <div id="version_update" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3 id="version_name"></h3>
+        </div>
+        <div class="modal-body">
+          <form>
+          	<input id="version_id" type="text" style="display:none" value=""/>
+            <label>服务访问路径</label>
+            <input id="server_url" type="text" class="input input-xlarge" value="">
+            <label>下载路径</label>
+            <input id="download_url" type="text" class="input input-xlarge" value="">
+            <label>版本描述</label>
+            <textarea id="remark" type="text" rows="4" cols="30"></textarea>
+            <label class="checkbox">
+                  <input id="update_force" type="checkbox"> 是否强制更新
+            </label>
+            <label class="checkbox">
+                  <input id="enable" type="checkbox"> 是否启用
+            </label>
+              <label class="checkbox">
+                  <input id="audited" type="checkbox"> 是否审核通过
+              </label>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button id="version_update_close"class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+          <button id="version_update_save" class="btn btn-primary">保存</button>
+        </div>
+      </div>
+
+
+      <div id="app_update" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3>修改项目</h3>
+      </div>
+      <div class="modal-body">
+        <form>
+          <label>项目名</label>
+          <input id="app_name" type="text" class="input input-xlarge" value="">
+          <label>项目描述</label>
+          <textarea id="app_description" cols="30" style="width:270px;height: 90px;"></textarea>
+          <label class="checkbox">
+                <input id="app_enable" type="checkbox"> 是否启用
+          </label>
+          <input id="app_id" type="hidden" value="0">
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button id="app_update_cancel_btn" class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+        <button id="app_update_btn" class="btn btn-primary">保存</button>
+      </div>
+      </div>
+
+
+      <div class="footer offset5">
+        <p>&copy; Company 2013</p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/json2.js"></script>
+    <script src="js/ajaxfileupload.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/query_page.js"></script>
+    <script src="js/version_list.js"></script>
+    <script src="js/view/app_view.js"></script>
+    <script src="js/view/app_add.js"></script>
+    <script src="js/view/version_add.js"></script>
+    <script src="js/helper.js"></script>
+    <script>
+        app_page.show();
+	    $("#app_list").click(function(){
+	        app_page.show();
+	    });
+	    $("#add_app").click(app_add_view);
+	    $("#add_version").click(version_add_view);
+    </script>
+
+  </body>
+</html>

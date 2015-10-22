@@ -1,0 +1,23 @@
+<table class='table table-bordered table-striped table-fluid'>
+    <thead>
+    <tr>
+        <th>项目名</th>
+        <th>项目描述</th>
+        <th>是否启用</th>
+        <th>管理</th>
+    </tr>
+    </thead>
+    <tbody>
+            <tr data-id="{{app.id}}" ng-repeat="app in appList">
+                <td class='JVersion_show'><a
+                        href='#/version/list/{{app.id}}/1'>{{app.name}}</a>
+                </td>
+                <td>{{app.description}}</td>
+                <td ng-if="app.enable == 0">否</td>
+                <td ng-if="app.enable == 1">是</td>
+                <td>
+                    <button class='btn btn-primary Japp_update' ng-click="goUpdateView(app)">修改</button>
+                </td>
+            </tr>
+    </tbody>
+</table>

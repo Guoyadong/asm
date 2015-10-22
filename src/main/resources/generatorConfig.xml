@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<classPathEntry
+		location="E:\apache-maven-3.3.3\repository\mysql\mysql-connector-java\5.1.34\mysql-connector-java-5.1.34.jar" />
+	<context id="context1">
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" /><!-- 是否取消注释 -->
+			<property name="suppressDate" value="true" /> <!-- 是否生成注释代时间戳 -->
+		</commentGenerator>
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost:3306/updateserver" userId="root"
+			password="123456" />
+
+		<javaModelGenerator targetPackage="com.renew.updateserver.service.admin.entity"
+			targetProject="E:\guoyd\workspace\update-server\src\main\java\" />
+		<sqlMapGenerator targetPackage="com.renew.updateserver.service.admin.dao"
+			targetProject="E:\guoyd\workspace\update-server\src\main\resources\" />
+		<javaClientGenerator targetPackage="com.renew.updateserver.service.admin.dao"
+			targetProject="E:\guoyd\workspace\update-server\src\main\java\" type="XMLMAPPER" />
+
+		<table schema="update-server" tableName="administrator"
+			   enableCountByExample="false" enableSelectByExample="false"
+			   enableDeleteByExample="false" enableUpdateByExample="false">
+		</table>
+	</context>
+</generatorConfiguration>
